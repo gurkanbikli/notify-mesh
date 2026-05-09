@@ -1,0 +1,38 @@
+[project]
+name = "notify-mesh"
+version = "0.1.0"
+description = "Manage, route and control notifications across multiple providers from a single platform."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic-settings>=2.6.0",
+    "sqlalchemy[asyncio]>=2.0.0",
+    "asyncmy>=0.2.9",
+    "alembic>=1.14.0",
+    "email-validator>=2.0.0",
+    "PyJWT>=2.9.0",
+    "python-multipart>=0.0.12",
+    "bcrypt>=5.0.0",
+    "cryptography>=48.0.0",
+    "httpx>=0.28.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "httpx>=0.27.0",
+    "ruff>=0.8.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
